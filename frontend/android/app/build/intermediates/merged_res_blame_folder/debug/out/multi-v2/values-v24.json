@@ -4,7 +4,7 @@
             "outputFile": "com.poc.app-mergeDebugResources-30:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\5238c36fa6e9265eafa50f3c1c536fa6\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "source": "/Users/sanjaychhikara/.gradle/caches/transforms-3/5238c36fa6e9265eafa50f3c1c536fa6/transformed/media-1.0.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\1b40e4574e76bff5831ef4bf4270480d\\transformed\\appcompat-1.4.1\\res\\values-v24\\values-v24.xml",
+                    "source": "/Users/sanjaychhikara/.gradle/caches/transforms-3/1b40e4574e76bff5831ef4bf4270480d/transformed/appcompat-1.4.1/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
