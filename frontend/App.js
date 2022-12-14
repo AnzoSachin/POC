@@ -10,6 +10,9 @@ import ItemQR from './components/itemQR'
 import BinQR from './components/binQR'
 import InsertItem from './components/insertItem'
 import FechItem from './components/fetchitem'
+import SelectScan from './components/selectScan'
+import BinScan from './components/scanBin'
+import ItemScan from './components/scanItem'
 
 
 
@@ -29,6 +32,9 @@ const MyApp = () => {
         <Stack.Screen name="binqr" component={BinQR} options={{ title: 'Bin QR Generation' }}/>
         <Stack.Screen name="insertitem" component={InsertItem} options={{ title: 'Save Item To Bin' }}/>
         <Stack.Screen name="fetchitem" component={FechItem} options={{ title: 'Fetch Item From Bin' }}/>
+        <Stack.Screen name="selectscan" component={SelectScan} options={{ title: 'Select For Scan' }}/>
+        <Stack.Screen name="scanbin" component={BinScan} options={{ title: 'Select Bin For Scan' }}/>
+        <Stack.Screen name="scanitem" component={ItemScan} options={{ title: 'Select Item For Scan' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

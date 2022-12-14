@@ -4,11 +4,53 @@ const sql = require('mssql')
 const config = require('./dbconfig')
 app.use(express.json())
 
-let SaveItemInStore = require('./Routes/save.routes')
+let SaveItemInStore = require('./Routes/save.routes.js')
 
 
    
-app.use('/save/itemtostore',SaveItemInStore)
+//app.use('/itemtostore',SaveItemInStore)
+
+app.post('/itemtostore',async(req,res)=>{
+ 
+  let data = req.body
+  console.log("-----> itemtostore",data)
+ 
+  try {
+    let pool = await sql.connect(config)
+    await pool.request()
+    .input("Item", sql.NVarChar,data.item)
+    .input("Quantity", sql.Int,data.quantity)
+    .input("Bin", sql.NVarChar,data.bin)
+    .execute("[sp_saveToStore]")
+    .then(result => {
+      console.log(result)
+      //.JSON("ooooooooooooooooooooooo")
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+app.post('/fetchfromtostore',async(req,res)=>{
+ 
+  let data = req.body
+  console.log("-----> itemtostore",data)
+ 
+  try {
+    let pool = await sql.connect(config)
+    await pool.request()
+    .input("Item", sql.NVarChar,data.item)
+    .input("Quantity", sql.NVarChar,data.quantity)
+    .input("Bin", sql.NVarChar,data.bin)
+    .execute("sp_Login")
+    .then(result => {
+      console.log(result)
+     // res.JSON("ooooooooooooooooooooooo")
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 app.post('/userlogin',async(req,res)=>{
     console.log("-----> userlogin",req.body)

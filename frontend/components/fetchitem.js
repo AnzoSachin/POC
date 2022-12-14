@@ -5,17 +5,20 @@ import QRCode from "react-native-qrcode-svg";
 import RNFS from "react-native-fs"
 
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
+import saveApi from '../API/saveApi'
 
 
 const FechItem = () => {
-    const [itemDescription, setInput] = useState('');
-    const [manufacturing, setManufacturing] = useState('');
-    const [qrValue, setQRValue] = useState('')
-    const [productQRref, setProductQRref] = useState();
+    const  [item, setItem] = useState('');
+    const  [quantity, setQuantity] = useState('');
+    const  [bin, setBin] = useState('')
     
-    const saveQrToDisk = async() => {
-        
-         }
+    const fetchItemFromStore = () => {
+      saveApi.saveItemToStore({item,quantity,bin})
+      .then((res) =>{
+       console.log(res)
+      })
+      }
         
        
 
@@ -26,7 +29,7 @@ const FechItem = () => {
         <TextInput
           style={styles.input}
           onChangeText={text => {
-            setInput(text)
+            setItem(text)
           }}
           placeholder="Enter Item"
         //  value={text}
@@ -34,7 +37,7 @@ const FechItem = () => {
           <TextInput
           style={styles.input}
           onChangeText={text => {
-            setInput(text)
+            setQuantity(text)
           }}
           placeholder="Quantity"
         //  value={text}
@@ -42,14 +45,14 @@ const FechItem = () => {
           <TextInput
           style={styles.input}
           onChangeText={text => {
-            setInput(text)
+            setBin(text)
           }}
           placeholder="Bin"
         //  value={text}
         />
        
         
-        <TouchableOpacity  onPress={() => { saveQrToDisk() }}>
+        <TouchableOpacity  onPress={() => { fetchItemFromStore() }}>
         <Button>Fetch</Button>
         </TouchableOpacity>
 
@@ -65,7 +68,7 @@ const FechItem = () => {
       margin: 12,
       borderWidth: 1,
       padding: 10,
-      backgroundColor:'blue'
+      backgroundColor:'white'
     },
     header: {
         fontSize: 25,
