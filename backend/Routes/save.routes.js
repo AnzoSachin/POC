@@ -6,7 +6,7 @@ let SaveItemController = require('../Controller/save.controller')
 
 
 
-app.post('/itemtostore',SaveItemController.saveItemToStore)
+app.post('/',SaveItemController.saveItemToStore)
 
 
 

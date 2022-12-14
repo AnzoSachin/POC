@@ -12,7 +12,7 @@ const Operation = (props) => {
 		</Card.Content>
 		
 	     <Card.Content>
-		<Paragraph></Paragraph>
+		<Paragraph>Save Data To Store</Paragraph>
 		</Card.Content>
 		<Card.Actions>
 		<Button ></Button>
@@ -24,7 +24,7 @@ const Operation = (props) => {
 		</Card.Content>
 		
 	     <Card.Content>
-		<Paragraph></Paragraph>
+		<Paragraph>Fetch Data From Store</Paragraph>
 		</Card.Content>
 		<Card.Actions>
 		<Button></Button>
@@ -36,7 +36,19 @@ const Operation = (props) => {
 		</Card.Content>
 		
 	     <Card.Content>
-		<Paragraph></Paragraph>
+		<Paragraph>Generate QR For Item OR Bin</Paragraph>
+		</Card.Content>
+		<Card.Actions>
+		<Button></Button>
+		</Card.Actions>
+	</Card>
+	<Card onPress={() => props.navigation?.navigate('selectscan')}  style={Styles.container}>
+		<Card.Content>
+			<Title>SCAN</Title>
+		</Card.Content>
+		
+	     <Card.Content>
+		<Paragraph>Scan Any Item OR Bin</Paragraph>
 		</Card.Content>
 		<Card.Actions>
 		<Button></Button>

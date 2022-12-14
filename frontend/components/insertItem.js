@@ -6,19 +6,23 @@ import RNFS from "react-native-fs"
 
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { useRoute } from "@react-navigation/native";
+import saveApi from '../API/saveApi'
 
 
 const InsertItem = () => {
-   const [itemDescription, setInput] = useState('');
-    const [manufacturing, setManufacturing] = useState('');
-    const [qrValue, setQRValue] = useState('')
-    const [productQRref, setProductQRref] = useState();
+   const  [item, setItem] = useState('');
+    const [quantity, setQuantity] = useState('');
+    const [bin, setBin] = useState('')
+    
     const route = useRoute();
     const iteminfo = route.params.data
-    console.log("Param Data",iteminfo)
+   
       
-    const saveQrToDisk = async() => {
-        
+    const saveItemToStore = () => {
+         saveApi.saveItemToStore({item,quantity,bin})
+         .then((res) =>{
+          console.log(res)
+         })
          }
         
        
@@ -30,15 +34,15 @@ const InsertItem = () => {
         <TextInput
           style={styles.input}
           onChangeText={text => {
-           // setInput(text)
+            setItem(text)
           }}
           placeholder="Enter Item"
-          value={iteminfo}
+         // value={iteminfo}
         />
           <TextInput
           style={styles.input}
           onChangeText={text => {
-          //  setInput(text)
+            setQuantity(text)
           }}
           placeholder="Quantity"
           //value={iteminfo}
@@ -46,14 +50,14 @@ const InsertItem = () => {
           <TextInput
           style={styles.input}
           onChangeText={text => {
-          //  setInput(text)
+            setBin(text)
           }}
           placeholder="Bin"
         //  value={text}
         />
        
         
-        <TouchableOpacity  onPress={() => { saveQrToDisk() }}>
+        <TouchableOpacity  onPress={() => { saveItemToStore() }}>
         <Button>Save</Button>
         </TouchableOpacity>
 
@@ -69,7 +73,7 @@ const InsertItem = () => {
       margin: 12,
       borderWidth: 1,
       padding: 10,
-      backgroundColor:'blue'
+      backgroundColor:'white'
     },
     header: {
         fontSize: 25,
